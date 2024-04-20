@@ -10,7 +10,7 @@ num_points = 100
 points = np.random.uniform(low=0, high=100, size=(num_points, 2))
 
 num_clusters = 3
-result_clusters = ring_clustering(points, num_clusters)
+result_clusters, assigned_points = ring_clustering(points, num_clusters)
 
-print_clusters(result_clusters)
+print_clusters(result_clusters, assigned_points)
 plot_clusters(points, result_clusters)

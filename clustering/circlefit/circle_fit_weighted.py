@@ -2,6 +2,7 @@ import math
 import numpy as np
 
 def fit_circle_weighted(points, clusters):
+    assigned_points = []
     centers = []
     radii = []
     
@@ -28,10 +29,11 @@ def fit_circle_weighted(points, clusters):
     for i, cluster in enumerate(clusters):
         center = calculate_barycenter(cluster_points[i])
         radius = calculate_radius(cluster_points[i], center)
+        assigned_points.append(cluster_points[i])
         centers.append(center)
         radii.append(radius)
     
-    return centers, radii
+    return centers, radii, assigned_points
 
 def calculate_barycenter(points):
     total_x = 0
