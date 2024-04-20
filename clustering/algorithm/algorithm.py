@@ -23,12 +23,13 @@ def initialize_clusters(num_clusters, points):
     return clusters
 
 def update_clusters(points, clusters):
-    new_centers, new_radii = fit_circle_weighted(points, clusters)
+    new_centers, new_radii, new_assigned_points = fit_circle_weighted(points, clusters)
     for i in range(len(clusters)):
         cluster = clusters[i]
         new_center = new_centers[i]
         new_radius = new_radii[i]
         cluster.update_center_radius(new_center, new_radius)
+    return new_assigned_points
 
 def update_membership_degrees(points, clusters):
     membership_degrees = transpose_list_of_lists([calculate_membership_degrees(point, clusters) for point in points])
@@ -43,7 +44,7 @@ def ring_clustering(points, num_clusters, max_iterations=5000, tol=1e-8):
     
     for _ in range(max_iterations):
         update_membership_degrees(points, clusters)
-        update_clusters(points, clusters)
+        assigned_points = update_clusters(points, clusters)
         
         new_centers = [cluster.center for cluster in clusters]
         
@@ -54,5 +55,5 @@ def ring_clustering(points, num_clusters, max_iterations=5000, tol=1e-8):
         
         prev_centers = new_centers
     
-    return clusters
+    return clusters, assigned_points
 

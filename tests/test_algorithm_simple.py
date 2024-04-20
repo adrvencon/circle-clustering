@@ -14,7 +14,7 @@ circle_params = [
 points = np.concatenate([generate_circle_points(**params) for params in circle_params])
 
 num_clusters = 2
-result_clusters = ring_clustering(points, num_clusters)
+result_clusters, assigned_points = ring_clustering(points, num_clusters)
 
-print_clusters(result_clusters)
+print_clusters(result_clusters, assigned_points)
 plot_clusters(points, result_clusters)
