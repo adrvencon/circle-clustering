@@ -37,7 +37,7 @@ def update_membership_degrees(points, clusters):
         cluster = clusters[i]
         cluster.update_membership_degree(membership_degrees[i])
 
-def ring_clustering(points, num_clusters, max_iterations=5000, tol=1e-8):
+def ring_clustering(points, num_clusters, max_iterations=2500, tol=1e-8):
     clusters = initialize_clusters(num_clusters, points)
     
     prev_centers = [cluster.center for cluster in clusters]

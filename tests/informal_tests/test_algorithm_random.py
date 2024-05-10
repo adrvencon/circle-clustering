@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from clustering.algorithm.algorithm import ring_clustering
-from utils.plot_clusters import plot_clusters
-from utils.print_clusters import print_clusters
+from utils.clusters_plot import plot_clusters
+from utils.clusters_print import print_clusters
 
 np.random.seed(0)
 num_points = 100

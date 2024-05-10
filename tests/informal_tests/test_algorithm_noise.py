@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from clustering.algorithm.algorithm import ring_clustering
-from utils.circle_generator import generate_circle_points
-from utils.plot_clusters import plot_clusters
-from utils.print_clusters import print_clusters
+from utils.circle_generator import generate_circle_points, generate_noisy_points
+from utils.clusters_plot import plot_clusters
+from utils.clusters_print import print_clusters
 
 circle_params = [
     {"center": (1, 2), "radius": 3, "num_points": 80},
@@ -14,8 +14,7 @@ circle_params = [
 points = np.concatenate([generate_circle_points(**params) for params in circle_params])
 
 # Add some noise to the points.
-noise = np.random.normal(0, 0.2, size=points.shape)
-noisy_points = points + noise
+noisy_points = generate_noisy_points(points, 0.2)
 
 num_clusters = 3
 result_clusters, assigned_points = ring_clustering(noisy_points, num_clusters)
