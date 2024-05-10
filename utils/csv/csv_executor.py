@@ -5,8 +5,7 @@ from clustering.algorithm.algorithm import ring_clustering
 from utils.clusters_plot import plot_clusters
 from utils.clusters_print import print_clusters
 
-def execute_tests_from_csv(csv_file):
-    df = pd.read_csv(csv_file)
+def execute_tests_from_csv(df):
     points = df[['x', 'y']].values
 
     num_clusters = int(df.iloc[0]['num_clusters'])
