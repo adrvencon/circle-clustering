@@ -1,7 +1,1 @@
-clustering/__pycache__
-clustering/algorithm/__pycache__
-utils/__pycache__
-clustering/circlefit/__pycache__
-clustering/datamodel/__pycache__
-clustering/membership/__pycache__
-tests/__pycache__
+__pycache__/
