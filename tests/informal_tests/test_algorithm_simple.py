@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 from clustering.algorithm.algorithm import ring_clustering
 from utils.circle_generator import generate_circle_points
-from utils.plot_clusters import plot_clusters
-from utils.print_clusters import print_clusters
+from utils.clusters_plot import plot_clusters
+from utils.clusters_print import print_clusters
 
 circle_params = [
     {"center": (0, 0), "radius": 2, "num_points": 30},

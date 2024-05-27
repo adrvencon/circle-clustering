@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
+
 def plot_clusters(points, result_clusters):
     plt.figure(figsize=(10, 10))
     plt.scatter(points[:, 0], points[:, 1], c='b', label='Data')
@@ -12,7 +15,7 @@ def plot_clusters(points, result_clusters):
 
     plt.xlabel('X-coordinate')
     plt.ylabel('Y-coordinate')
-    plt.title('Ring Clustering with Uncertainty')
+    plt.title('Ring Clustering Experiment')
     plt.legend()
     plt.grid(True)
     plt.axis('equal')
