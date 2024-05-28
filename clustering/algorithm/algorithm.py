@@ -5,6 +5,12 @@ from clustering.datamodel.cluster import Cluster
 from clustering.membership.compute_degrees import calculate_membership_degrees
 from utils.transpose_list import transpose_list_of_lists
 
+def initialize_clusters_random(num_clusters):
+    centers = [np.random.rand(2) for _ in range(num_clusters)]
+    clusters = [Cluster(center, 0) for center in centers]
+    return clusters
+
+# K-means++ method to initialize clusters.
 def initialize_clusters(num_clusters, points):
     centers = []
     
@@ -38,6 +44,7 @@ def update_membership_degrees(points, clusters):
         cluster.update_membership_degree(membership_degrees[i])
 
 def ring_clustering(points, num_clusters, max_iterations=2500, tol=1e-8):
+    iterations = 0
     clusters = initialize_clusters(num_clusters, points)
     
     prev_centers = [cluster.center for cluster in clusters]
@@ -54,6 +61,28 @@ def ring_clustering(points, num_clusters, max_iterations=2500, tol=1e-8):
             break
         
         prev_centers = new_centers
+        iterations += 1
     
-    return clusters, assigned_points
+    return clusters, assigned_points, iterations
 
+def ring_clustering_without_heuristic(points, num_clusters, max_iterations=2500, tol=1e-8):
+    iterations = 0
+    clusters = initialize_clusters_random(num_clusters)
+    
+    prev_centers = [cluster.center for cluster in clusters]
+    
+    for _ in range(max_iterations):
+        update_membership_degrees(points, clusters)
+        assigned_points = update_clusters(points, clusters)
+        
+        new_centers = [cluster.center for cluster in clusters]
+        
+        # Check convergence.
+        center_movement = max(np.linalg.norm(np.array(new_center) - np.array(prev_center)) for new_center, prev_center in zip(new_centers, prev_centers))
+        if center_movement < tol:
+            break
+        
+        prev_centers = new_centers
+        iterations += 1
+    
+    return clusters, assigned_points, iterations

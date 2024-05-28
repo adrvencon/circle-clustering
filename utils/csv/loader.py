@@ -29,3 +29,18 @@ def load_test_scenario9():
 
 def load_test_scenario10():
     return pd.read_csv("test_scenario_10.csv")
+
+def load_test_scenario11():
+    return pd.read_csv("test_scenario_11.csv")
+
+def load_test_scenario12():
+    return pd.read_csv("test_scenario_12.csv")
+
+def load_test_scenario13():
+    return pd.read_csv("test_scenario_13.csv")
+
+def load_test_scenario14():
+    return pd.read_csv("test_scenario_14.csv")
+
+def load_test_scenario15():
+    return pd.read_csv("test_scenario_15.csv")

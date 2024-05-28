@@ -30,3 +30,18 @@ execute_tests_from_csv(df)
 
 df = load_test_scenario10()
 execute_tests_from_csv(df)
+
+df = load_test_scenario11()
+execute_tests_from_csv(df)
+
+df = load_test_scenario12()
+execute_tests_from_csv(df)
+
+df = load_test_scenario13()
+execute_tests_from_csv(df)
+
+df = load_test_scenario14()
+execute_tests_from_csv(df)
+
+df = load_test_scenario15()
+execute_tests_from_csv(df)
