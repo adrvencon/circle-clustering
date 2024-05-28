@@ -85,4 +85,10 @@ for i, scenario in enumerate(test_scenarios):
     noisy_points = generate_noisy_points(points, scenario["noise_level"])
     df = pd.DataFrame(noisy_points, columns=["x", "y"])
     df["num_clusters"] = scenario["num_clusters"]
+    for j, circle_param in enumerate(scenario["circle_params"]):
+        center_x, center_y = circle_param["center"]
+        radius = circle_param["radius"]
+        df[f"center_x_{j+1}"] = center_x
+        df[f"center_y_{j+1}"] = center_y
+        df[f"radius_{j+1}"] = radius
     df.to_csv(f"test_scenario_{i+1}.csv", index=False)

@@ -10,6 +10,12 @@ def execute_tests_from_csv(df):
 
     num_clusters = int(df.iloc[0]['num_clusters'])
 
+    center_columns = [col for col in df.columns if col.startswith('center_x_') or col.startswith('center_y_')]
+    radius_columns = [col for col in df.columns if col.startswith('radius_')]
+    
+    centers = df[center_columns].values
+    radii = df[radius_columns].values
+
     start_time = time.time()
     # With heuristic
     result_clusters, assigned_points, iterations = ring_clustering(points, num_clusters)
@@ -31,8 +37,8 @@ def execute_tests_from_csv(df):
     print("ELAPSED TIME WITHOUT HEURISTIC: ", elapsed_time_without_heuristic)
     print("------------------------------------------------------------------")
     print("------------- RESULTS WITH HEURISTIC INITIALIZATION --------------")
-    print_clusters(result_clusters, assigned_points)
+    print_clusters(result_clusters, assigned_points, centers, radii)
     plot_clusters(points, result_clusters)
     print("------------- RESULTS WITHOUT HEURISTIC INITIALIZATION -----------")
-    print_clusters(result_clusters_noh, assigned_points_noh)
+    print_clusters(result_clusters_noh, assigned_points_noh, centers, radii)
     plot_clusters(points, result_clusters_noh)
