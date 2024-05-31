@@ -9,6 +9,7 @@ Circle Clustering is a Python project aimed at clustering a collection of points
 - Matplotlib
 - Pandas
 - Time
+- Scipy
 
 ## Setup Instructions
 To set up the project environment, follow these steps:
