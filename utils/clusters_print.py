@@ -1,6 +1,7 @@
 import numpy as np
 
 def print_clusters(result_clusters, assigned_points, centers=[], radii=[]):
+    total_error = 0
     parsed_centers = [centers[i:i+2] for i in range(0, len(centers), 2)]
     for i, cluster in enumerate(result_clusters):
         if len(parsed_centers) != 0:
@@ -16,7 +17,7 @@ def print_clusters(result_clusters, assigned_points, centers=[], radii=[]):
             print("------------------------------------------------------------------")
             print(f"Assigned points = {assigned_points}")
             print("")
-            total_error =+ accumulated_error
+            total_error += accumulated_error
         else:
             print(f"CLUSTER {i+1}:")
             print(f"Estimated Center = {cluster.center}, Estimated Radius = {cluster.radius}") 
