@@ -12,6 +12,23 @@ Circle Clustering is a Python project aimed at clustering a collection of points
     - Scipy
     - Os
 
+## Project Structure
+The structure of the project files is as follows:
+
+- **clustering**: This folder contains the main modules relevant to the execution of the algorithm.
+  - **algorithm**: Comprises the methods for overseeing the execution of the overall algorithm, bringing together various components to create the final executable algorithm.
+  - **circlefit**: Contains the main files for the circle fitting algorithm.
+  - **datamodel**: This folder contains files pertinent to the creation of the datamodel.
+  - **membership**: Contains methods regarding the computation of the membership degrees for each cluster.
+  
+- **tests**: This folder contains modules relevant to the testing phases of the project.
+  - **formal tests**: Contains formal tests for clustering algorithms. These tests are relevant for the experimentation phase.
+  - **informal tests**: Contains informal tests used during the development of the algorithm. These were not used as formal test cases.
+  
+- **utils**: A folder containing all auxiliary methods used that were not directly pertinent to the main topic. It primarily comprises parsing, plotting, and methods for generating the tests.
+
+In the root of the project folder you can find the generated csv files for the formal test cases.
+
 ## Setup Instructions
 To set up the project environment, follow these steps:
 1. Clone the repository to your local machine.
