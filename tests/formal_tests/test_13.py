@@ -5,7 +5,7 @@ from utils.csv.csv_executor import execute_tests_from_csv
 # correctly, you should only need to change the scenario_number to your new test case to execute the test.
 
 test_scenarios = load_test_scenarios()
-scenario_number = 5
+scenario_number = 13
 scenario_name = f"test_scenario_{scenario_number}"
 scenario_df = test_scenarios[scenario_name]
 execute_tests_from_csv(scenario_df)
