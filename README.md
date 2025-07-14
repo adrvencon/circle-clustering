@@ -78,4 +78,4 @@ execute_tests_from_csv(scenario_df)
 **For examples, please consult the already-made tests in the codebase (1-15).**
 
 ## Additional Information
-For any additional information or questions, please refer to the project's paper.
+For any additional information or questions, please refer to the project's paper in the [docs](docs) folder.
